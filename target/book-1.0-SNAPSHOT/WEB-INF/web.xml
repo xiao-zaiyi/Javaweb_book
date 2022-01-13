@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>UserServelet</servlet-name>
+        <servlet-class>com.august.web.UserServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServelet</servlet-name>
+        <url-pattern>/userServelet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookServelet</servlet-name>
+        <servlet-class>com.august.web.BookServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BookServelet</servlet-name>
+        <url-pattern>/manage/bookServelet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ClientServelet</servlet-name>
+        <servlet-class>com.august.web.ClientServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClientServelet</servlet-name>
+        <url-pattern>/client/bookServelet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <servlet-class>com.august.web.MyKaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <url-pattern>/kaptcha.jpg</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>CarServelet</servlet-name>
+        <servlet-class>com.august.web.CarServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CarServelet</servlet-name>
+        <url-pattern>/carServelet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>OrderServelet</servlet-name>
+        <servlet-class>com.august.web.OrderServelet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServelet</servlet-name>
+        <url-pattern>/orderServelet</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>ManagerFilter</filter-name>
+        <filter-class>com.august.filter.ManagerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ManagerFilter</filter-name>
+        <url-pattern>/manager/*</url-pattern>
+        <url-pattern>/pages/manager/*</url-pattern>
+    </filter-mapping>
+
+
+    <filter>
+        <filter-name>TransactionFilter</filter-name>
+        <filter-class>com.august.filter.TransactionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>TransactionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/pages/error/error500.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pages/error/error404.jsp</location>
+    </error-page>
+
+</web-app>
